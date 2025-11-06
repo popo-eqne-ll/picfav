@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { PerformanceList } from './pages/PerformanceList';
 import { PhotoGallery } from './pages/PhotoGallery';
@@ -13,7 +13,7 @@ function App() {
   useGaPageView(); // Call the hook
 
   return (
-    <HashRouter>
+    <>
       <Header hasFavorites={favorites.size > 0} />
       <main>
         <Routes>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/favorites" element={<FavoritesGallery />} />
         </Routes>
       </main>
-    </HashRouter>
+    </>
   );
 }
 
