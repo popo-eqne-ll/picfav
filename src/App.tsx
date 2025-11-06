@@ -19,7 +19,7 @@ function App() {
           <Route path="/favorites" element={<FavoritesGallery />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
