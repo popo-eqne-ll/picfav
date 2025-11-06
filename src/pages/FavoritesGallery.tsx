@@ -7,7 +7,7 @@ export const FavoritesGallery = () => {
   const { favorites, toggleFavorite } = useFavorites();
 
   const allPhotos = (performances as Performance[]).flatMap(p => p.photos);
-  const favoritePhotos = allPhotos.filter(photo => favorites.has(photo.id));
+  const favoritePhotos = allPhotos.filter(photo => favorites.has(photo.url));
 
   return (
     <div className="page-container">
