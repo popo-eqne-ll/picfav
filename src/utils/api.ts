@@ -17,10 +17,13 @@ export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' |
   const deviceId = getOrSetDeviceId();
 
   const payload = {
-    photo_id: photoUrl, // Use photoUrl as photo_id
+    photo_id: photoUrl,
     device_id: deviceId,
-    status: status, // 'favorited' or 'unfavorited'
+    status: status,
   };
+
+  // Convert payload to URLSearchParams for application/x-www-form-urlencoded
+  const formBody = new URLSearchParams(payload as Record<string, string>).toString();
 
   console.log('Sending API POST request to GAS endpoint:', GAS_ENDPOINT, 'with payload:', payload);
 
@@ -28,16 +31,17 @@ export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' |
     const response = await fetch(GAS_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded', // Changed Content-Type
       },
-      body: JSON.stringify(payload),
+      body: formBody, // Send formBody
     });
 
     if (!response.ok) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
 
-    const result = await response.json();
+    // For form-urlencoded, GAS usually returns plain text or redirects, not JSON
+    const result = await response.text(); // Changed to .text()
     console.log('GAS API response:', result);
   } catch (error) {
     console.error('Failed to post favorite status to GAS:', error);
