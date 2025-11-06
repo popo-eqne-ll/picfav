@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { PerformanceList } from './pages/PerformanceList';
 import { PhotoGallery } from './pages/PhotoGallery';
@@ -10,7 +10,7 @@ function App() {
   const { favorites } = useFavorites();
 
   return (
-    <BrowserRouter basename="/picfav">
+    <HashRouter>
       <Header hasFavorites={favorites.size > 0} />
       <main>
         <Routes>

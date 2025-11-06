@@ -7,7 +7,7 @@ interface HeaderProps {
 export const Header = ({ hasFavorites }: HeaderProps) => {
   return (
     <header className="app-header">
-      <h1><Link to="./">PicFav</Link></h1>
+      <h1><Link to="/">PicFav</Link></h1>
       <nav>
         <Link to="/">ライブ公演一覧</Link>
         {hasFavorites && (
