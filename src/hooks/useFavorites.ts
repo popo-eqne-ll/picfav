@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { postFavoriteStatus } from '../utils/api';
+import { trackEvent } from '../utils/ga';
 
 const FAVORITES_KEY = 'picfav_favorites';
 
@@ -38,6 +39,12 @@ export const useFavorites = () => {
 
     setFavorites(newFavorites);
     await postFavoriteStatus(photoId, status);
+
+    // Track GA event
+    trackEvent('favorite_action', {
+      photo_id: photoId,
+      action_type: status,
+    });
   }, [favorites]);
 
   return { favorites, toggleFavorite };
