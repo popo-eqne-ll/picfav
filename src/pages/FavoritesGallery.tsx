@@ -19,7 +19,7 @@ export const FavoritesGallery = () => {
               key={photo.id} 
               photo={photo} 
               isFavorite={true} // Always true here
-              onToggleFavorite={toggleFavorite}
+              onToggleFavorite={() => toggleFavorite(photo.url)}
             />
           ))}
         </div>

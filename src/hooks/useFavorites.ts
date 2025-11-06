@@ -24,20 +24,20 @@ export const useFavorites = () => {
     }
   }, [favorites]);
 
-  const toggleFavorite = useCallback(async (photoId: string) => {
+  const toggleFavorite = useCallback(async (photoUrl: string) => {
     const newFavorites = new Set(favorites);
     let status: 'favorited' | 'unfavorited';
 
-    if (newFavorites.has(photoId)) {
-      newFavorites.delete(photoId);
+    if (newFavorites.has(photoUrl)) {
+      newFavorites.delete(photoUrl);
       status = 'unfavorited';
     } else {
-      newFavorites.add(photoId);
+      newFavorites.add(photoUrl);
       status = 'favorited';
     }
 
     setFavorites(newFavorites);
-    await postFavoriteStatus(photoId, status);
+    await postFavoriteStatus(photoUrl, status);
   }, [favorites]);
 
   return { favorites, toggleFavorite };

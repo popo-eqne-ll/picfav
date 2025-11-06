@@ -1,25 +1,31 @@
 import { getOrSetDeviceId } from './deviceId';
 
+// Get GAS endpoint from environment variable
+const GAS_ENDPOINT = import.meta.env.VITE_GAS_ENDPOINT;
+
 /**
  * Posts the favorite status of a photo to the API.
- * @param photoId The ID of the photo.
+ * @param photoUrl The URL of the photo (used as photo_id).
  * @param status The new status ('favorited' or 'unfavorited').
  */
-export const postFavoriteStatus = async (photoId: string, status: 'favorited' | 'unfavorited') => {
+export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' | 'unfavorited') => {
+  if (!GAS_ENDPOINT) {
+    console.error('VITE_GAS_ENDPOINT is not defined. Skipping API POST.');
+    return;
+  }
+
   const deviceId = getOrSetDeviceId();
 
   const payload = {
-    photoId,
-    deviceId,
-    status,
+    photo_id: photoUrl, // Use photoUrl as photo_id
+    device_id: deviceId,
+    status: status, // 'favorited' or 'unfavorited'
   };
 
-  console.log('Simulating API POST request with payload:', payload);
+  console.log('Sending API POST request to GAS endpoint:', GAS_ENDPOINT, 'with payload:', payload);
 
-  // In a real application, you would use fetch() to send this to your backend:
-  /*
   try {
-    const response = await fetch('/api/vote', {
+    const response = await fetch(GAS_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,17 +34,13 @@ export const postFavoriteStatus = async (photoId: string, status: 'favorited' | 
     });
 
     if (!response.ok) {
-      throw new Error('API request failed');
+      throw new Error(`API request failed with status: ${response.status}`);
     }
 
     const result = await response.json();
-    console.log('API response:', result);
+    console.log('GAS API response:', result);
   } catch (error) {
-    console.error('Failed to post favorite status:', error);
+    console.error('Failed to post favorite status to GAS:', error);
     // Here you might want to handle the error, e.g., show a notification to the user
   }
-  */
-
-  // Simulate a network delay
-  await new Promise(resolve => setTimeout(resolve, 300));
 };
