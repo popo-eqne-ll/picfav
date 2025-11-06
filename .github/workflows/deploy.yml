@@ -41,7 +41,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+          VITE_GA_TRACKING_ID: G-N6TF76CNDZ
           VITE_GAS_ENDPOINT: ${{ secrets.GAS_ENDPOINT }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
