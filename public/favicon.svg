@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Photo background -->
+  <rect x="10" y="10" width="80" height="80" fill="#333" rx="10" ry="10"/>
+  <!-- Mountain/landscape inside photo -->
+  <path d="M10 70 L30 50 L50 70 L70 50 L90 70 L90 90 L10 90 Z" fill="#555"/>
+  <!-- Sun/circle inside photo -->
+  <circle cx="75" cy="30" r="10" fill="#FFD700"/>
+  <!-- Heart icon -->
+  <path d="M50 25 C60 5 80 15 80 40 C80 65 50 85 50 85 C50 85 20 65 20 40 C20 15 40 5 50 25 Z" fill="#F72585"/>
+</svg>
