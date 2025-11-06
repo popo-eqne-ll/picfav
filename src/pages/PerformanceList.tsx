@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import type { Performance } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppData } from '../hooks/useAppData'; // Import the new hook
 

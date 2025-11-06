@@ -1,4 +1,4 @@
-import type { Performance, Photo } from '../types';
+import type { Photo } from '../types';
 import { PhotoItem } from '../components/PhotoItem';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppData } from '../hooks/useAppData'; // Import the new hook
