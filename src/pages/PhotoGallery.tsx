@@ -22,7 +22,7 @@ export const PhotoGallery = () => {
           <PhotoItem 
             key={photo.id} 
             photo={photo} 
-            isFavorite={favorites.has(photo.url)}
+            isFavorite={favorites.has(photo.id)}
             onToggleFavorite={toggleFavorite}
           />
         ))}

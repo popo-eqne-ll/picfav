@@ -5,10 +5,10 @@ const GAS_ENDPOINT = import.meta.env.VITE_GAS_ENDPOINT;
 
 /**
  * Posts the favorite status of a photo to the API.
- * @param photoUrl The URL of the photo (used as photo_id).
+ * @param photoId The ID of the photo.
  * @param status The new status ('favorited' or 'unfavorited').
  */
-export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' | 'unfavorited') => {
+export const postFavoriteStatus = async (photoId: string, status: 'favorited' | 'unfavorited') => {
   if (!GAS_ENDPOINT) {
     console.error('VITE_GAS_ENDPOINT is not defined. Skipping API POST.');
     return;
@@ -17,7 +17,7 @@ export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' |
   const deviceId = getOrSetDeviceId();
 
   const payload = {
-    photo_id: photoUrl,
+    photo_id: photoId, // Use photoId as photo_id
     device_id: deviceId,
     status: status,
   };
@@ -31,17 +31,17 @@ export const postFavoriteStatus = async (photoUrl: string, status: 'favorited' |
     const response = await fetch(GAS_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded', // Changed Content-Type
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: formBody, // Send formBody
+      body: formBody,
     });
 
     if (!response.ok) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
 
-    // For form-urlencoded, GAS usually returns plain text or redirects, not JSON
-    const result = await response.text(); // Changed to .text()
+    // Assuming GAS returns JSON, revert to .json()
+    const result = await response.json(); 
     console.log('GAS API response:', result);
   } catch (error) {
     console.error('Failed to post favorite status to GAS:', error);

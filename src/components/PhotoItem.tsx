@@ -5,7 +5,7 @@ import { FaHeart } from 'react-icons/fa';
 interface PhotoItemProps {
   photo: Photo;
   isFavorite: boolean;
-  onToggleFavorite: (photoUrl: string) => void;
+  onToggleFavorite: (photoId: string) => void; // Change to photoId
 }
 
 export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProps) => {
@@ -16,7 +16,6 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
     setIsLoading(false);
   };
 
-  // This useEffect handles cases where image might be cached and onLoad doesn't fire
   useEffect(() => {
     if (imgRef.current && imgRef.current.complete) {
       setIsLoading(false);
@@ -34,11 +33,11 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
         alt={`Live photo ${photo.id}`} 
         loading="lazy" 
         onLoad={handleImageLoad}
-        className={isLoading ? 'image-hidden' : 'image-visible'} // Control visibility via CSS class
+        className={isLoading ? 'image-hidden' : 'image-visible'}
       />
       <button 
         className={`favorite-button ${isFavorite ? 'favorited' : ''}`}
-        onClick={() => onToggleFavorite(photo.url)}
+        onClick={() => onToggleFavorite(photo.id)} // Pass photo.id
         aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
       >
         <FaHeart />

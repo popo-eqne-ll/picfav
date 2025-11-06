@@ -7,7 +7,7 @@ export const FavoritesGallery = () => {
   const { favorites, toggleFavorite } = useFavorites();
 
   const allPhotos = (performances as Performance[]).flatMap(p => p.photos);
-  const favoritePhotos = allPhotos.filter(photo => favorites.has(photo.url));
+  const favoritePhotos = allPhotos.filter(photo => favorites.has(photo.id));
 
   return (
     <div className="page-container">
@@ -18,8 +18,8 @@ export const FavoritesGallery = () => {
             <PhotoItem 
               key={photo.id} 
               photo={photo} 
-              isFavorite={true} // Always true here
-              onToggleFavorite={() => toggleFavorite(photo.url)}
+              isFavorite={true} // Still true here
+              onToggleFavorite={() => toggleFavorite(photo.id)}
             />
           ))}
         </div>
