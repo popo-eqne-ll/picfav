@@ -1,7 +1,7 @@
 import performances from '../data.json';
 import { PhotoItem } from '../components/PhotoItem';
 import { useFavorites } from '../hooks/useFavorites';
-import type { Performance, Photo } from '../types';
+import type { Performance } from '../types';
 
 export const FavoritesGallery = () => {
   const { favorites, toggleFavorite } = useFavorites();
