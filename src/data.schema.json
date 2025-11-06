@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Performances Data",
+  "description": "A list of performances, each with a set of photos.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "A unique identifier for the performance."
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the performance."
+      },
+      "date": {
+        "type": "string",
+        "format": "date",
+        "description": "The date of the performance in YYYY-MM-DD format."
+      },
+      "photos": {
+        "type": "array",
+        "description": "A list of photos from the performance.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "A unique identifier for the photo."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "The URL for the full-resolution photo."
+            },
+            "thumbnailUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "The URL for the thumbnail image."
+            }
+          },
+          "required": ["id", "url", "thumbnailUrl"]
+        }
+      }
+    },
+    "required": ["id", "name", "date", "photos"]
+  }
+}
