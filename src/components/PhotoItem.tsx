@@ -34,6 +34,7 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
         loading="lazy" 
         onLoad={handleImageLoad}
         className={isLoading ? 'image-hidden' : 'image-visible'}
+        onDoubleClick={() => onToggleFavorite(photo.id)}
       />
       <button 
         className={`favorite-button ${isFavorite ? 'favorited' : ''}`}
