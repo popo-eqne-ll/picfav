@@ -23,7 +23,7 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
   }, [photo.url]);
 
   return (
-    <div className="photo-item">
+    <div className="photo-item" id={`photo-${photo.id}`}>
       {isLoading && (
         <div className="image-loading-spinner"></div>
       )}
