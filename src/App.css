@@ -1,0 +1,133 @@
+/* General Layout */
+main {
+  padding: 1rem;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.page-container h2 {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--card-background-color);
+  border-bottom: 1px solid #333;
+}
+
+.app-header h1 a {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.app-header nav a {
+  color: var(--text-muted-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.app-header nav a:hover, .app-header nav a.active {
+  color: var(--primary-color);
+}
+
+/* Performance List */
+.performance-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.performance-card {
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #444;
+}
+
+.performance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.favorite-shortcut-card {
+  border: 1px solid var(--primary-color);
+}
+
+.performance-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+}
+
+.performance-card p {
+  margin: 0;
+  color: var(--text-muted-color);
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* Photo Item */
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button.favorited {
+  color: var(--primary-color);
+}

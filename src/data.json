@@ -1,0 +1,26 @@
+[
+  {
+    "id": "live-2025-11-01",
+    "name": "Autumn Live 2025 Day 1",
+    "date": "2025-11-01",
+    "photos": [
+      { "id": "img001.jpg", "url": "https://picsum.photos/seed/img001/800/1200" },
+      { "id": "img002.jpg", "url": "https://picsum.photos/seed/img002/800/1200" },
+      { "id": "img003.jpg", "url": "https://picsum.photos/seed/img003/800/1200" },
+      { "id": "img004.jpg", "url": "https://picsum.photos/seed/img004/800/1200" },
+      { "id": "img005.jpg", "url": "https://picsum.photos/seed/img005/800/1200" }
+    ]
+  },
+  {
+    "id": "live-2025-11-02",
+    "name": "Autumn Live 2025 Day 2",
+    "date": "2025-11-02",
+    "photos": [
+      { "id": "img006.jpg", "url": "https://picsum.photos/seed/img006/800/1200" },
+      { "id": "img007.jpg", "url": "https://picsum.photos/seed/img007/800/1200" },
+      { "id": "img008.jpg", "url": "https://picsum.photos/seed/img008/800/1200" },
+      { "id": "img009.jpg", "url": "https://picsum.photos/seed/img009/800/1200" },
+      { "id": "img010.jpg", "url": "https://picsum.photos/seed/img010/800/1200" }
+    ]
+  }
+]
