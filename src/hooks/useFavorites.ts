@@ -40,11 +40,7 @@ export const useFavorites = () => {
     setFavorites(newFavorites);
     await postFavoriteStatus(photoId, status);
 
-    // Track GA event
-    trackEvent('favorite_action', {
-      photo_id: photoId,
-      action_type: status,
-    });
+    trackEvent('favorite', status, photoId);
   }, [favorites]);
 
   return { favorites, toggleFavorite };
