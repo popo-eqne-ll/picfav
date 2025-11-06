@@ -10,7 +10,7 @@ function App() {
   const { favorites } = useFavorites();
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/picfav">
       <Header hasFavorites={favorites.size > 0} />
       <main>
         <Routes>
