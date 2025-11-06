@@ -35,6 +35,8 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
         onLoad={handleImageLoad}
         className={isLoading ? 'image-hidden' : 'image-visible'}
         onDoubleClick={() => onToggleFavorite(photo.id)}
+        onContextMenu={(e) => e.preventDefault()}
+        draggable={false}
       />
       <button 
         className={`favorite-button ${isFavorite ? 'favorited' : ''}`}
