@@ -20,7 +20,7 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
     if (imgRef.current && imgRef.current.complete) {
       setIsLoading(false);
     }
-  }, [photo.url]);
+  }, [photo.thumbnailUrl]);
 
   return (
     <div className="photo-item" id={`photo-${photo.id}`}>
@@ -29,7 +29,7 @@ export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProp
       )}
       <img 
         ref={imgRef} // Attach ref
-        src={photo.url} 
+        src={photo.thumbnailUrl} 
         alt={`Live photo ${photo.id}`} 
         loading="lazy" 
         onLoad={handleImageLoad}
