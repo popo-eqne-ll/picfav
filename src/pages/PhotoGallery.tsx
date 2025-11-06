@@ -27,9 +27,9 @@ export const PhotoGallery = () => {
     const gallery = galleryRef.current;
     if (!gallery) return;
 
-    const debounce = (func: (...args: any[]) => void, wait: number) => {
+    const debounce = (func: (...args: unknown[]) => void, wait: number) => {
       let timeout: number;
-      return (...args: any[]) => {
+      return (...args: unknown[]) => {
         clearTimeout(timeout);
         timeout = window.setTimeout(() => func.apply(this, args), wait);
       };
