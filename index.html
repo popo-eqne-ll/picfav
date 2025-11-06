@@ -5,20 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PicFav</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_TRACKING_ID%"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      // Initialize GA only if tracking ID is available
-      if (import.meta.env.VITE_GA_TRACKING_ID) {
-        gtag('config', import.meta.env.VITE_GA_TRACKING_ID, {
-          'page_path': window.location.pathname + window.location.hash // For HashRouter
-        });
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>
