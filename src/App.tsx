@@ -1,17 +1,27 @@
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import { RouterContent } from './components/RouterContent'; // Import new component
+import { PerformanceList } from './pages/PerformanceList';
+import { PhotoGallery } from './pages/PhotoGallery';
+import { FavoritesGallery } from './pages/FavoritesGallery';
 import { useFavorites } from './hooks/useFavorites';
 import './App.css';
 
+import { useGaPageView } from './hooks/useGaPageView'; // New hook
+
 function App() {
   const { favorites } = useFavorites();
-  // Removed useGaPageView() call from here
+  useGaPageView(); // Call the hook
 
   return (
     <HashRouter>
       <Header hasFavorites={favorites.size > 0} />
-      <RouterContent /> {/* Render the new component here */}
+      <main>
+        <Routes>
+          <Route path="/" element={<PerformanceList />} />
+          <Route path="/performance/:performanceId" element={<PhotoGallery />} />
+          <Route path="/favorites" element={<FavoritesGallery />} />
+        </Routes>
+      </main>
     </HashRouter>
   );
 }
