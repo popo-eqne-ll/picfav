@@ -104,6 +104,15 @@ main {
   display: block;
   aspect-ratio: 2 / 3;
   object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.photo-item img.image-hidden {
+  opacity: 0;
+}
+
+.photo-item img.image-visible {
+  opacity: 1;
 }
 
 .image-loading-spinner {
