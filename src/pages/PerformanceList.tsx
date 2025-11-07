@@ -21,20 +21,26 @@ export const PerformanceList = () => {
 
   return (
     <div className="page-container">
-      <h2>ライブ公演一覧</h2>
-      <div className="performance-list">
-        {hasFavorites && (
-          <Link to="/favorites" className="performance-card favorite-shortcut-card">
-            <h3>お気に入りの写真</h3>
-            <p>{favorites.size}枚の写真</p>
-          </Link>
-        )}
-        {performances.map(performance => (
-          <Link key={performance.id} to={`/performance/${performance.id}`} className="performance-card">
-            <h3>{performance.name}</h3>
-            <p>{performance.date}</p>
-          </Link>
-        ))}
+      {hasFavorites && (
+        <div className="favorites-section">
+          <div className="favorites-grid">
+            <Link to="/favorites" className="performance-card favorite-shortcut-card">
+              <h3>お気に入りの写真</h3>
+              <p>{favorites.size}枚の写真</p>
+            </Link>
+          </div>
+        </div>
+      )}
+      <div className="performance-list-section">
+        <h2>ライブ公演一覧</h2>
+        <div className="performance-list">
+          {performances.map(performance => (
+            <Link key={performance.id} to={`/performance/${performance.id}`} className="performance-card">
+              <h3>{performance.name}</h3>
+              <p>{performance.date}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

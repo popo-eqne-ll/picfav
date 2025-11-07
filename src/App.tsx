@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <Header hasFavorites={favorites.size > 0} />
+      <Header hasFavorites={true} />
       <main>
         <Routes>
           <Route path="/" element={<PerformanceList />} />

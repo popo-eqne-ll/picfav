@@ -8,11 +8,11 @@ export const FavoritesGallery = () => {
   const { data: allPerformances, loading, error } = useAppData(); // Use the hook
 
   if (loading) {
-    return <div className="page-container"><h2>Loading favorites...</h2></div>;
+    return <div className="page-container"><h2>お気に入りを読み込み中...</h2></div>;
   }
 
   if (error) {
-    return <div className="page-container"><h2>Error: {error}</h2></div>;
+    return <div className="page-container"><h2>エラー: {error}</h2></div>;
   }
 
   const allPhotos: Photo[] = allPerformances ? allPerformances.flatMap(p => p.photos) : [];
@@ -20,7 +20,7 @@ export const FavoritesGallery = () => {
 
   return (
     <div className="page-container">
-      <h2>My Favorites</h2>
+      <h2>お気に入り</h2>
       {favoritePhotos.length > 0 ? (
         <div className="photo-gallery">
           {favoritePhotos.map(photo => (
@@ -33,7 +33,7 @@ export const FavoritesGallery = () => {
           ))}
         </div>
       ) : (
-        <p>You haven't favorited any photos yet.</p>
+        <p>お気に入りの写真はありません。</p>
       )}
     </div>
   );
