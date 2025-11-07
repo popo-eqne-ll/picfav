@@ -9,7 +9,7 @@ export const Header = ({ hasFavorites }: HeaderProps) => {
 
   return (
     <header className="app-header">
-      <h1><Link to="/">PicFav</Link></h1>
+
       <nav>
         <Link to="/" className={location.pathname === '/' ? 'active' : ''} aria-current={location.pathname === '/' ? 'page' : undefined}>ライブ公演一覧</Link>
         {hasFavorites && (

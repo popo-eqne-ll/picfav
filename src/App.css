@@ -18,9 +18,9 @@ main {
 /* Header */
 .app-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0.25rem 2rem;
+  padding: 1.5rem 2rem;
   background-color: var(--card-background-color);
   border-bottom: 1px solid #333;
 }
