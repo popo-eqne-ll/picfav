@@ -110,9 +110,17 @@ main {
   border-radius: 8px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 320px;
   background-color: #000;
+}
+
+.photo-item.landscape {
+  height: 320px;
+  align-items: center;
+}
+
+.photo-item.portrait {
+  height: auto;
+  align-items: flex-start;
 }
 
 .photo-item img {
@@ -121,6 +129,11 @@ main {
   display: block;
   object-fit: contain;
   transition: opacity 0.3s ease-in-out;
+}
+
+.photo-item.portrait img {
+  object-fit: cover;
+  height: auto;
 }
 
 .photo-item img.image-hidden {

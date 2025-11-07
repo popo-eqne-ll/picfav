@@ -10,20 +10,25 @@ interface PhotoItemProps {
 
 export const PhotoItem = ({ photo, isFavorite, onToggleFavorite }: PhotoItemProps) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [orientation, setOrientation] = useState<'landscape' | 'portrait'>('landscape');
   const imgRef = useRef<HTMLImageElement>(null);
 
   const handleImageLoad = () => {
+    if (imgRef.current) {
+      const { naturalWidth, naturalHeight } = imgRef.current;
+      setOrientation(naturalWidth > naturalHeight ? 'landscape' : 'portrait');
+    }
     setIsLoading(false);
   };
 
   useEffect(() => {
     if (imgRef.current && imgRef.current.complete) {
-      setIsLoading(false);
+      handleImageLoad();
     }
   }, [photo.thumbnailUrl]);
 
   return (
-    <div className="photo-item" id={`photo-${photo.id}`}>
+    <div className={`photo-item ${orientation}`} id={`photo-${photo.id}`}>
       {isLoading && (
         <div className="image-loading-spinner"></div>
       )}
