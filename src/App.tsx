@@ -3,13 +3,12 @@ import { Header } from './components/Header';
 import { PerformanceList } from './pages/PerformanceList';
 import { PhotoGallery } from './pages/PhotoGallery';
 import { FavoritesGallery } from './pages/FavoritesGallery';
-import { useFavorites } from './hooks/useFavorites';
+
 import './App.css';
 
 import { useGaPageView } from './hooks/useGaPageView'; // New hook
 
 function App() {
-  const { favorites } = useFavorites();
   useGaPageView(); // Call the hook
 
   return (
